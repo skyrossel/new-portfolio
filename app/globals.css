@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::selection {
+    @apply bg-[#efefee] text-[#080808];
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-[0.125rem] bg-[#080808];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#efefee];
+  }
+
+  body {
+    @apply cursor-none bg-[#080808] font-mono text-[#efefee] antialiased;
+  }
+
+  a {
+    @apply cursor-none;
+  }
+}
