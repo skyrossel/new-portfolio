@@ -9,13 +9,13 @@ import { Container } from "@/components/ui/container";
 const SOCIALS = [
   {
     id: 1,
-    label: "GH",
-    href: "https://github.com/takumihonjo",
+    label: "IG",
+    href: "https://www.instagram.com/takumihonjo",
   },
   {
     id: 2,
-    label: "IG",
-    href: "https://www.instagram.com/takumihonjo",
+    label: "GH",
+    href: "https://github.com/takumihonjo",
   },
   {
     id: 3,
