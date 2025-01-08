@@ -8,11 +8,11 @@
   }
 
   ::-webkit-scrollbar {
-    @apply md:w-[0.125rem] md:bg-[#080808];
+    @apply w-[0.125rem] bg-[#080808];
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply md:bg-[#efefee];
+    @apply bg-[#efefee];
   }
 
   body {
