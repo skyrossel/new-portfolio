@@ -16,10 +16,6 @@
   }
 
   body {
-    @apply cursor-none bg-[#080808] font-mono text-[#efefee] antialiased;
-  }
-
-  a {
-    @apply cursor-none;
+    @apply bg-[#080808] font-mono text-[#efefee] antialiased;
   }
 }
