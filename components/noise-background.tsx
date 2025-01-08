@@ -9,20 +9,22 @@ const NoiseBackground = () => {
     ) as HTMLCanvasElement;
     const ctx = canvas.getContext("2d")!;
 
+    let imageData: ImageData;
+    let data: Uint8ClampedArray;
+    let bufferLength: number;
+
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+
+      imageData = ctx.createImageData(canvas.width, canvas.height);
+      data = imageData.data;
+      bufferLength = data.length;
     };
 
     window.addEventListener("resize", resize);
 
     resize();
-
-    const imageData = ctx.createImageData(canvas.width, canvas.height);
-
-    const { data } = imageData;
-
-    const bufferLength = data.length;
 
     let lastTime = 0;
 
@@ -37,6 +39,8 @@ const NoiseBackground = () => {
       }
 
       lastTime = currentTime;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (let i = 0; i < bufferLength; i += 4) {
         const noise = Math.random() * 255;
