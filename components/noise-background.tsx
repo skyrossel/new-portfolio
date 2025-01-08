@@ -12,6 +12,7 @@ const NoiseBackground = () => {
     let imageData: ImageData;
     let data: Uint8ClampedArray;
     let bufferLength: number;
+    let animationFrameId: number;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -28,12 +29,12 @@ const NoiseBackground = () => {
 
     let lastTime = 0;
 
-    const fps = 30;
-    const interval = 1000 / fps;
+    const FPS = 30;
+    const INTERVAL = 1000 / FPS;
 
     function createNoise(currentTime: number) {
-      if (currentTime - lastTime < interval) {
-        requestAnimationFrame(createNoise);
+      if (currentTime - lastTime < INTERVAL) {
+        animationFrameId = requestAnimationFrame(createNoise);
 
         return;
       }
@@ -51,13 +52,15 @@ const NoiseBackground = () => {
 
       ctx.putImageData(imageData, 0, 0);
 
-      requestAnimationFrame(createNoise);
+      animationFrameId = requestAnimationFrame(createNoise);
     }
 
     requestAnimationFrame(createNoise);
 
     return () => {
       window.removeEventListener("resize", resize);
+
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
