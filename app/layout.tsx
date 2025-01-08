@@ -40,7 +40,6 @@ export default function RootLayout({
           <SmoothScroll>
             <Header />
             <Main>{children}</Main>
-            <Footer />
           </SmoothScroll>
           <NoiseBackground />
         </div>

@@ -54,7 +54,7 @@ const Cursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="pointer-events-none fixed hidden md:block inset-0 z-50 h-5 w-5 select-none rounded-full opacity-0"
+      className="pointer-events-none fixed inset-0 z-50 h-5 w-5 select-none rounded-full opacity-0"
     />
   );
 };
