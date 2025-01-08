@@ -36,7 +36,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="py-2.5">
+    <footer className="pb-[1.5625rem] md:py-2.5">
       <Container>
         <div className="grid grid-cols-1 items-center gap-x-10 gap-y-5 md:grid-cols-3">
           <div className="flex flex-col items-center gap-y-3 md:items-start">
