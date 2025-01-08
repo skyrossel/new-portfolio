@@ -68,6 +68,7 @@ const NoiseBackground = () => {
     <canvas
       id="noise-background"
       className="pointer-events-none fixed inset-0 z-[-1] will-change-transform"
+      style={{ transform: "translateZ(0)" }}
     />
   );
 };
