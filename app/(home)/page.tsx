@@ -4,12 +4,12 @@ import SectionFour from "@/app/(home)/_components/section-four";
 export default function HomePage() {
   return (
     <>
-      <section className="flex h-[calc(100vh-3.875rem)] items-center justify-center py-[1.5625rem] md:h-[calc(100vh-3.375rem)]">
+      <section className="flex items-center justify-center py-[1.5625rem]">
         <p className="text-xs uppercase text-[#848484]">Soon</p>
       </section>
       <SectionTwo />
       <SectionFour />
-      <section className="flex h-[calc(100vh-12.5rem)] items-center justify-center py-[1.5625rem] md:h-[calc(100vh-4.5rem)]">
+      <section className="flex items-center justify-center py-[1.5625rem]">
         <p className="text-xs uppercase text-[#848484]">Soon</p>
       </section>
     </>
