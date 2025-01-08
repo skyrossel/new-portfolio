@@ -15,8 +15,9 @@ const NoiseBackground = () => {
     let animationFrameId: number;
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
 
       imageData = ctx.createImageData(canvas.width, canvas.height);
       data = imageData.data;
@@ -67,7 +68,7 @@ const NoiseBackground = () => {
   return (
     <canvas
       id="noise-background"
-      className="pointer-events-none fixed inset-0 z-[-1]"
+      className="pointer-events-none fixed inset-0 z-[-1] h-full w-full"
     />
   );
 };
