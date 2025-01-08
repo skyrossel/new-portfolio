@@ -38,6 +38,7 @@ export default function RootLayout({
         <div className="flex min-h-dvh flex-col">
           <Cursor />
           <SmoothScroll>
+            <Header />
             <Main>{children}</Main>
             <Footer />
           </SmoothScroll>
