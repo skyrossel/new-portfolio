@@ -18,30 +18,39 @@ const NoiseBackground = () => {
 
     resize();
 
-    function createNoise() {
-      const imageData = ctx.createImageData(canvas.width, canvas.height);
+    const imageData = ctx.createImageData(canvas.width, canvas.height);
 
-      const { data } = imageData;
+    const { data } = imageData;
 
-      for (let i = 0; i < data.length; i += 4) {
+    const bufferLength = data.length;
+
+    let lastTime = 0;
+
+    const fps = 30;
+    const interval = 1000 / fps;
+
+    function createNoise(currentTime: number) {
+      if (currentTime - lastTime < interval) {
+        requestAnimationFrame(createNoise);
+
+        return;
+      }
+
+      lastTime = currentTime;
+
+      for (let i = 0; i < bufferLength; i += 4) {
         const noise = Math.random() * 255;
 
-        data[i] = noise;
-        data[i + 1] = noise;
-        data[i + 2] = noise;
+        data[i] = data[i + 1] = data[i + 2] = noise;
         data[i + 3] = 15;
       }
 
       ctx.putImageData(imageData, 0, 0);
+
+      requestAnimationFrame(createNoise);
     }
 
-    function animate() {
-      createNoise();
-
-      requestAnimationFrame(animate);
-    }
-
-    requestAnimationFrame(animate);
+    requestAnimationFrame(createNoise);
 
     return () => {
       window.removeEventListener("resize", resize);
