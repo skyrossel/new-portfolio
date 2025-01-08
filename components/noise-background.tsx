@@ -13,6 +13,10 @@ const NoiseBackground = () => {
     let data: Uint8ClampedArray;
     let bufferLength: number;
 
+    const scroll = () => {
+      canvas.style.transform = `translateY(${window.scrollY}px)`;
+    };
+
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -22,6 +26,7 @@ const NoiseBackground = () => {
       bufferLength = data.length;
     };
 
+    window.addEventListener("scroll", scroll);
     window.addEventListener("resize", resize);
 
     resize();
@@ -57,6 +62,7 @@ const NoiseBackground = () => {
     requestAnimationFrame(createNoise);
 
     return () => {
+      window.removeEventListener("scroll", scroll);
       window.removeEventListener("resize", resize);
     };
   }, []);
@@ -64,7 +70,7 @@ const NoiseBackground = () => {
   return (
     <canvas
       id="noise-background"
-      className="pointer-events-none fixed inset-0 z-[-1]"
+      className="pointer-events-none fixed inset-0 z-[-1] will-change-transform"
     />
   );
 };
