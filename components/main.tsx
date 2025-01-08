@@ -1,9 +1,5 @@
 const Main = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <main className="flex-1">
-      <section className="min-h-dvh">Main</section>
-    </main>
-  );
+  return <main className="flex-1">{children}</main>;
 };
 
 export default Main;
