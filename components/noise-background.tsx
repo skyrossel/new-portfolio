@@ -67,7 +67,7 @@ const NoiseBackground = () => {
   return (
     <canvas
       id="noise-background"
-      className="pointer-events-none fixed inset-0 z-[-1]"
+      className="pointer-events-none fixed inset-0 z-[-1] hidden md:block"
     />
   );
 };
